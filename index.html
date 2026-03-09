@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KATAMAR — Modern Fashion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">KATAMAR</div>
+    <div class="nav-links">
+      <a href="#collection">Collection</a>
+      <a href="#lookbook">Lookbook</a>
+      <a href="#about">About</a>
+    </div>
+    <div class="nav-right">
+      <button class="cart-btn" onclick="toggleCart()">
+        BAG <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-shape s1"></div>
+      <div class="hero-shape s2"></div>
+      <div class="hero-shape s3"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-sub reveal">SS — 2025</p>
+      <h1 class="hero-title reveal">
+        <span>Wear</span>
+        <em>Your</em>
+        <span>Story.</span>
+      </h1>
+      <p class="hero-desc reveal">Thoughtfully designed pieces for the modern individual. Sustainably made, endlessly wearable.</p>
+      <a href="#collection" class="hero-cta reveal">Explore Collection ↓</a>
+    </div>
+    <div class="hero-marquee">
+      <div class="marquee-track">
+        <span>NEW ARRIVALS</span><span>·</span><span>SUMMER 2025</span><span>·</span>
+        <span>SUSTAINABLE FASHION</span><span>·</span><span>FREE SHIPPING</span><span>·</span>
+        <span>NEW ARRIVALS</span><span>·</span><span>SUMMER 2025</span><span>·</span>
+        <span>SUSTAINABLE FASHION</span><span>·</span><span>FREE SHIPPING</span><span>·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLECTION -->
+  <section class="collection" id="collection">
+    <div class="section-header">
+      <h2 class="section-title">The Edit</h2>
+      <p class="section-sub">Curated pieces, enduring style</p>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+      <button class="filter-btn" onclick="filterProducts('tops', this)">Tops</button>
+      <button class="filter-btn" onclick="filterProducts('bottoms', this)">Bottoms</button>
+      <button class="filter-btn" onclick="filterProducts('outerwear', this)">Outerwear</button>
+      <button class="filter-btn" onclick="filterProducts('accessories', this)">Accessories</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid"></div>
+  </section>
+
+  <!-- LOOKBOOK -->
+  <section class="lookbook" id="lookbook">
+    <div class="lookbook-text">
+      <h2>The <em>Summer</em><br>Lookbook</h2>
+      <p>Effortless dressing for long days and warm evenings. A collection that moves with you.</p>
+      <a href="#collection" class="btn-outline">Shop the Look</a>
+    </div>
+    <div class="lookbook-grid">
+      <div class="lb-card lb-tall" style="background:linear-gradient(135deg,#c9b99a,#8b7355)">
+        <div class="lb-label">Linen Stories</div>
+      </div>
+      <div class="lb-card" style="background:linear-gradient(135deg,#a8b5a0,#6b7c63)">
+        <div class="lb-label">Earth Tones</div>
+      </div>
+      <div class="lb-card" style="background:linear-gradient(135deg,#b5c4d4,#7090a8)">
+        <div class="lb-label">Sky Blues</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <section class="about-strip" id="about">
+    <div class="about-item">
+      <span class="about-icon">♻</span>
+      <h3>Sustainably Made</h3>
+      <p>Every piece crafted with ethical materials and fair-trade practices.</p>
+    </div>
+    <div class="about-item">
+      <span class="about-icon">✦</span>
+      <h3>Timeless Design</h3>
+      <p>Beyond trends — pieces you'll love for years, not seasons.</p>
+    </div>
+    <div class="about-item">
+      <span class="about-icon">◎</span>
+      <h3>Free Returns</h3>
+      <p>30-day hassle-free returns on all orders worldwide.</p>
+    </div>
+    <div class="about-item">
+      <span class="about-icon">⬡</span>
+      <h3>Carbon Neutral</h3>
+      <p>100% offset shipping on every order we send.</p>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h2>Join the Circle</h2>
+    <p>Early access, exclusive drops, and style notes — in your inbox.</p>
+    <div class="nl-form">
+      <input type="email" placeholder="your@email.com" class="nl-input" id="nlEmail"/>
+      <button class="nl-btn" onclick="subscribe()">Subscribe</button>
+    </div>
+    <p class="nl-confirm" id="nlConfirm"></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">KATAMAR</div>
+    <div class="footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">Press</a>
+      <a href="#">Careers</a>
+      <a href="#">Contact</a>
+    </div>
+    <p class="footer-copy">© 2025 KATAMAR Fashion. All rights reserved. Made with care.</p>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button onclick="toggleCart()" class="cart-close">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Your bag is empty.</p>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total">Total: $<span id="cartTotal">0</span></div>
+      <button class="checkout-btn">Checkout →</button>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
